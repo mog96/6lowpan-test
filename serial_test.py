@@ -1,0 +1,8 @@
+import serial
+
+ser = serial.Serial("/dev/ttyUSB0", baudrate=115200, timeout=3.0)
+
+while True:
+    ser.read() 
+    rcv = port.read(10)
+    port.write("\r\nYou sent:" + repr(rcv))
