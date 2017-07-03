@@ -9,3 +9,5 @@ while True:
 
   print("shifted out [0x%02x, 0x%02x, 0x%02x, 0x%02x]" % tuple(data_out))
   print("shifted in  [0x%02x, 0x%02x, 0x%02x, 0x%02x]" % tuple(data_in))
+
+  sleep(1/400000)
