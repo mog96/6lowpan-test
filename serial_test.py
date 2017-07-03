@@ -1,6 +1,6 @@
 import serial
 
-ser = serial.Serial("/dev/ttyUSB0", baudrate=12800, timeout=1.0)
+ser = serial.Serial("/dev/spidev0.0", baudrate=12800, timeout=1.0)
 print 'READING FROM PORT', ser.name
 
 while True:
