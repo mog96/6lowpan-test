@@ -1,6 +1,7 @@
 #!/usr/bin/python
-# get lines of text from serial port, save them to a file
+# Get lines of text from serial port, save them to a file.
 
+import datetime
 import serial
 import sys
 
