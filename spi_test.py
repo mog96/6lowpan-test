@@ -9,7 +9,7 @@ with open("log.txt", 'w') as f:
     data_out = [0x00, 0x00, 0x00, 0x00]
     data_in = spi.transfer(data_out)
 
-    f.write("[0x%02x, 0x%02x, 0x%02x, 0x%02x]" % tuple(data_out))
-    f.write("[0x%02x, 0x%02x, 0x%02x, 0x%02x]" % tuple(data_in))
+    # print("[0x%02x, 0x%02x, 0x%02x, 0x%02x]" % tuple(data_out))
+    f.write("[0x%02x, 0x%02x, 0x%02x, 0x%02x]" % tuple(data_in), '\n')
 
     # sleep(1/400000)
