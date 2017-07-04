@@ -12,7 +12,7 @@ fmode = 'a'             # log file mode = append
 with serial.Serial(addr, baud) as ser, open(fname, fmode) as f:
     while (1):
         x = ser.read()         # read one line of text from serial port
-        sys.stdout.write('x')  # echo byte on-screen as ASCII
-        sys.stdout.flush()
+        sys.stdout.write(x)    # echo byte on-screen as ASCII
+        sys.stdout.flush()     # make sure it actually gets written out
         f.write(x)             # write line of text to file
         f.flush()              # make sure it actually gets written out
