@@ -2,6 +2,7 @@
 # Get lines of text from serial port, save them to a file.
 
 import datetime
+import os
 import serial
 import sys
 
