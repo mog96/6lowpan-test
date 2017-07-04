@@ -11,7 +11,7 @@ fmode = 'a'             # log file mode = append
 with serial.Serial(addr, baud) as ser, open(fname, fmode) as f:
     ser.readline()  # throw away first line; likely to start mid-sentence (incomplete)
     while (1):
-        x = spb.readline()  # read one line of text from serial port
+        x = spb.read()  # read one line of text from serial port
         print(x)    # echo line of text on-screen
         f.write(x)       # write line of text to file
         f.flush()        # make sure it actually gets written out
