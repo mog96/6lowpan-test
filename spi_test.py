@@ -10,6 +10,6 @@ with open("log.txt", 'w') as f:
     data_in = spi.transfer(data_out)
 
     # print("[0x%02x, 0x%02x, 0x%02x, 0x%02x]" % tuple(data_out))
-    f.write("[0x%02x, 0x%02x, 0x%02x, 0x%02x]" % tuple(data_in) + '\n')
+    f.write(str(data_in) + '\n')
 
     # sleep(1/400000)
