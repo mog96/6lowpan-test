@@ -5,7 +5,7 @@ from __future__ import print_function
 import serial, io
 
 addr  = '/dev/ttyUSB0'  # serial port to read data from
-baud  = 115200          # baud rate for serial port
+baud  = 128000          # baud rate for serial port
 fname = 'log.txt'       # log file to save data in
 fmode = 'a'             # log file mode = append
 
