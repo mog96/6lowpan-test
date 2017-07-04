@@ -1,4 +1,5 @@
 from periphery import SPI
+from time import sleep
 
 while True:
   # Open spidev1.0 with mode 0 and max speed 1MHz
