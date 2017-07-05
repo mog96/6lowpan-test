@@ -6,8 +6,9 @@ tap.mtu = 1280
 
 tap.up()
 
-test = buffer('a', 'b', 'c')
+s = 'testing'
+# test = buffer('a', 'b', 'c')
 
 while 1:
-  tap.write(test)
+  tap.write(s)
   sleep(2)
