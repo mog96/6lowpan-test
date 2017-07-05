@@ -7,5 +7,6 @@ tap.mtu = 1280
 tap.up()
 
 while 1:
-  tap.write(b'test')
+  test = b"test"
+  tap.write(test)
   sleep(2)
