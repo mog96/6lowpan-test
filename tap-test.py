@@ -1,5 +1,4 @@
 from pytun import TunTapDevice, IFF_TAP
 
-tap = TunTapDevice(flags=IFF_TAP)
-tap.name = 'tap0'
+tap = TunTapDevice(name='tap0', flags=IFF_TAP)
 print tap.name
