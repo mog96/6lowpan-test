@@ -9,5 +9,5 @@ tap.up()
 test = buffer(1, 2, 3)
 
 while 1:
-  tap.write(s)
+  tap.write(test)
   sleep(2)
