@@ -4,6 +4,8 @@ from time import sleep
 tap = TunTapDevice(name='tap0', flags=IFF_TAP)
 tap.mtu = 1280
 
+tap.up()
+
 string = 'testing'
 
 while 1:
