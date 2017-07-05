@@ -7,4 +7,4 @@ tap.netmask = '255.255.255.0'
 tap.mtu = 1280
 
 while 1:
-  print "swag",
+  tap.write('testing')
