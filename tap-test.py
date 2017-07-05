@@ -6,3 +6,6 @@ print tap.addr
 print tap.dstaddr
 print tap.netmask
 print tap.mtu
+
+while 1:
+  print "swag",
