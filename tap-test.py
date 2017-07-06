@@ -15,6 +15,10 @@ while 1:
   test = 'test'
   buf = tap.read(tap.mtu)
 
-  print buf
+  try:
+    print buf.decode('utf-8')
+  except:
+    print buf
 
   tap.write(buf)
+  sleep(2)
