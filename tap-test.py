@@ -15,7 +15,7 @@ while 1:
   test = 'test'
   buf = tap.read(tap.mtu)
 
-  print buf
+  print buf.decode('utf-8')
 
   tap.write(buf)
   sleep(2)
