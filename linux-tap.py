@@ -19,7 +19,7 @@ fcntl.ioctl(tap, TUNSETIFF, ifr)
 fcntl.ioctl(tap, TUNSETOWNER, 1000)
 
 # Bring it up and assign addresses.
-subprocess.check_call('ifconfig tap0 inet6 2001:0db8:85a3:::8a2e:0370:7334/64 pointopoint fe80::f8ca:a929:6861:653b/64 up',
+subprocess.check_call('ifconfig tap0 inet6 2001:0db8:85a3:0000:0000:8a2e:0370:7334/64 pointopoint fe80::f8ca:a929:6861:653b/64 up',
         shell=True)
 
 while True:
