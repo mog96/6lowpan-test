@@ -13,5 +13,5 @@ test = ''
 
 while 1:
   test = 'test'
-  tap.write(test)
+  # tap.write(test)
   sleep(2)
