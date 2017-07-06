@@ -57,6 +57,7 @@ while True:
     #     packet[23] = chr(checksum & ((1 << 8) -1))
 
     # Write the reply packet into TUN device.
-    os.write(tap.fileno(), ''.join(packet))
+    # os.write(tap.fileno(), ''.join(packet))
+    os.write(tap.fileno(), packet)
 
     sleep(2)
