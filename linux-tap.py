@@ -19,8 +19,10 @@ fcntl.ioctl(tap, TUNSETIFF, ifr)
 fcntl.ioctl(tap, TUNSETOWNER, 1000)
 
 # Bring it up and assign addresses.
-subprocess.check_call('ifconfig tap0 inet6 2001:0db8:85a3:0000:0000:8a2e:0370:7334/64 pointopoint fe80::f8ca:a929:6861:653b/64 up',
+subprocess.check_call('ifconfig tap0 192.168.7.1 pointopoint 192.168.7.2 up',
         shell=True)
+# subprocess.check_call('ifconfig tap0 inet6 2001:0db8:85a3:0000:0000:8a2e:0370:7334/64 pointopoint fe80::f8ca:a929:6861:653b/64 up',
+#         shell=True)
 
 while True:
     # Read an IP packet been sent to this TUN device.
