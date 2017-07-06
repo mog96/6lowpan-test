@@ -21,4 +21,3 @@ while 1:
     print buf
 
   tap.write(buf)
-  sleep(2)
