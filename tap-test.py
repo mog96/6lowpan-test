@@ -12,12 +12,8 @@ tap.up()
 test = ''
 
 while 1:
-  test = 'test'
   buf = tap.read(tap.mtu)
 
-  try:
-    print buf.decode('utf-8')
-  except:
-    print buf
+  print buf
 
   tap.write(buf)
