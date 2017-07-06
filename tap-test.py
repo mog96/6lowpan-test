@@ -13,6 +13,9 @@ test = ''
 
 while 1:
   test = 'test'
-  buf = tun.read(tun.mtu)
+  buf = tap.read(tap.mtu)
+
+  print buf
+
   tap.write(buf)
   sleep(2)
