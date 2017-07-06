@@ -2,7 +2,7 @@ import fcntl
 import os
 import struct
 import subprocess
-
+from time import sleep
 
 # Some constants used to ioctl the device file. I got them by a simple C
 # program.
@@ -24,7 +24,9 @@ subprocess.check_call('ifconfig tap0 192.168.7.1 pointopoint 192.168.7.2 up',
 
 while True:
     # Read an IP packet been sent to this TUN device.
-    packet = list(os.read(tap.fileno(), 2048))
+    # packet = list(os.read(tap.fileno(), 2048))
+
+    packet = 'banana'
 
     # Modify it to an ICMP Echo Reply packet.
     #
@@ -56,3 +58,5 @@ while True:
 
     # Write the reply packet into TUN device.
     os.write(tap.fileno(), ''.join(packet))
+
+    sleep(2)
