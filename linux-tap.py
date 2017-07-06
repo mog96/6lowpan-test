@@ -13,10 +13,10 @@ IFF_TAP = 0x0002
 IFF_NO_PI = 0x1000
 
 # Open file corresponding to the TUN device.
-tun = open('/dev/net/tun', 'r+b')
+tap = open('/dev/net/tun', 'r+b')
 ifr = struct.pack('16sH', 'tap0', IFF_TAP | IFF_NO_PI)
-fcntl.ioctl(tun, TUNSETIFF, ifr)
-fcntl.ioctl(tun, TUNSETOWNER, 1000)
+fcntl.ioctl(tap, TUNSETIFF, ifr)
+fcntl.ioctl(tap, TUNSETOWNER, 1000)
 
 # Bring it up and assign addresses.
 subprocess.check_call('ifconfig tap0 192.168.7.1 pointopoint 192.168.7.2 up',
@@ -24,7 +24,7 @@ subprocess.check_call('ifconfig tap0 192.168.7.1 pointopoint 192.168.7.2 up',
 
 while True:
     # Read an IP packet been sent to this TUN device.
-    packet = list(os.read(tun.fileno(), 2048))
+    packet = list(os.read(tap.fileno(), 2048))
 
     # Modify it to an ICMP Echo Reply packet.
     #
@@ -37,22 +37,22 @@ while True:
     # Under Linux, the code below is not necessary to make the TUN device to
     # work. I don't know why yet. If you run tcpdump, you can see the
     # difference.
-    if True:
-        # Change ICMP type code to Echo Reply (0).
-        packet[20] = chr(0)
-        # Clear original ICMP Checksum field.
-        packet[22:24] = chr(0), chr(0)
-        # Calculate new checksum.
-        checksum = 0
-        # for every 16-bit of the ICMP payload:
-        for i in range(20, len(packet), 2):
-            half_word = (ord(packet[i]) << 8) + ord(packet[i+1])
-            checksum += half_word
-        # Get one's complement of the checksum.
-        checksum = ~(checksum + 4) & 0xffff
-        # Put the new checksum back into the packet.
-        packet[22] = chr(checksum >> 8)
-        packet[23] = chr(checksum & ((1 << 8) -1))
+    # if True:
+    #     # Change ICMP type code to Echo Reply (0).
+    #     packet[20] = chr(0)
+    #     # Clear original ICMP Checksum field.
+    #     packet[22:24] = chr(0), chr(0)
+    #     # Calculate new checksum.
+    #     checksum = 0
+    #     # for every 16-bit of the ICMP payload:
+    #     for i in range(20, len(packet), 2):
+    #         half_word = (ord(packet[i]) << 8) + ord(packet[i+1])
+    #         checksum += half_word
+    #     # Get one's complement of the checksum.
+    #     checksum = ~(checksum + 4) & 0xffff
+    #     # Put the new checksum back into the packet.
+    #     packet[22] = chr(checksum >> 8)
+    #     packet[23] = chr(checksum & ((1 << 8) -1))
 
     # Write the reply packet into TUN device.
-    os.write(tun.fileno(), ''.join(packet))
+    os.write(tap.fileno(), ''.join(packet))
