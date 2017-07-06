@@ -15,7 +15,7 @@ while 1:
   test = 'test'
   buf = tap.read(tap.mtu)
 
-  print map(ord, list(buf))
+  print buf
 
   tap.write(buf)
   sleep(2)
