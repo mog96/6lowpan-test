@@ -15,6 +15,8 @@ while 1:
   test = 'test'
   buf = tap.read(tap.mtu)
 
+  ''.join(map(chr, list(buf)))
+
   print buf
 
   tap.write(buf)
