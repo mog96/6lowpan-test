@@ -24,7 +24,7 @@ subprocess.check_call('ifconfig tap0 192.168.7.1 pointopoint 192.168.7.2 up',
 
 while True:
     # Read an IP packet been sent to this TUN device.
-    # packet = list(os.read(tap.fileno(), 2048))
+    packet = list(os.read(tap.fileno(), 2048))
 
     # Modify it to an ICMP Echo Reply packet.
     #
@@ -55,7 +55,7 @@ while True:
     #     packet[23] = chr(checksum & ((1 << 8) -1))
 
     # Write the reply packet into TUN device.
-    # os.write(tap.fileno(), ''.join(packet))
-    os.write(tap.fileno(), "testing")
+    os.write(tap.fileno(), ''.join(packet))
+    # os.write(tap.fileno(), "testing")
 
-    sleep(2)
+    # sleep(2)
