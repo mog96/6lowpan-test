@@ -34,7 +34,7 @@ while True:
     # been sent to our TUN device as an ICMP Echo Request.
 
     # Swap source and destination address.
-    packet[12:16], packet[16:20] = packet[16:20], packet[12:16]
+    # packet[12:16], packet[16:20] = packet[16:20], packet[12:16]
 
     # Under Linux, the code below is not necessary to make the TUN device to
     # work. I don't know why yet. If you run tcpdump, you can see the
