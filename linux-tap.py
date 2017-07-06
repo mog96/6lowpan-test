@@ -26,7 +26,7 @@ while True:
     # Read an IP packet been sent to this TUN device.
     # packet = list(os.read(tap.fileno(), 2048))
 
-    packet = list('banana')
+    packet = list(b'banana')
 
     # Modify it to an ICMP Echo Reply packet.
     #
